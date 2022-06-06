@@ -10,8 +10,8 @@ jobs:
             name: Create Cloudformation Stack
             command: |
                aws cloudformation deploy \
-                   --template-file satcks.yml \
-                    --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
+                   --template-file stacks.yml \
+                    --stack-name myStack-udacity \
                     --region us-east-1
 
 workflows:
