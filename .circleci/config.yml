@@ -9,10 +9,10 @@ jobs:
         - run:
             name: Create Cloudformation Stack
             command: |
-              aws cloudformation  create-stack \
-                --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
-                --template-body file://stacks.yml \
-                --region us-east-1
+               aws cloudformation deploy \
+                   --template-file stacks.yml \
+                    --stack-name myStack-udacity \
+                    --region us-east-1
 
 workflows:
 
