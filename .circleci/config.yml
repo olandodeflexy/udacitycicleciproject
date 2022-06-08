@@ -51,7 +51,9 @@ jobs:
       steps:
         - run:
            name: smoke test
-           command: return 1
+           command: |
+             aws s3 ls
+             return 1
         - destroy_environment
             
 
