@@ -1,23 +1,23 @@
 version: 2.1
 
 jobs:
-# Exercise: Config and Deployment
-    configure_infrastructure: 
-      docker:
-        - image: python:3.7-alpine3.11
-      steps:
-        - checkout
-        - add_ssh_keys:
-            # You can get this ID in the section where you registered the SSH Key
-            fingerprints: ["2f:69:22:a9:2b:ea:33:db:0e:63:40:e7:90:d3:c8:79"] 
-        - run:
-            name: Install Ansible
-            command: |
-              apk add --update ansible
-        - run:
-            name: Run Playbook and Configure server
-            command: |
-              ansible-playbook -i inventiry main.yml
+# # Exercise: Config and Deployment
+#     configure_infrastructure: 
+#       docker:
+#         - image: python:3.7-alpine3.11
+#       steps:
+#         - checkout
+#         - add_ssh_keys:
+#             # You can get this ID in the section where you registered the SSH Key
+#             fingerprints: ["2f:69:22:a9:2b:ea:33:db:0e:63:40:e7:90:d3:c8:79"] 
+#         - run:
+#             name: Install Ansible
+#             command: |
+#               apk add --update ansible
+#         - run:
+#             name: Run Playbook and Configure server
+#             command: |
+#               ansible-playbook -i inventiry main.yml
               
 
     # Exercise: Smoke Testing
@@ -33,9 +33,9 @@ jobs:
              # Test if website exists
              if curl -s --head ${URL} 
              then
-               return 0
+               echo "It worked" && return 0
              else
-               return 1
+               echo "It failed" && return 1
              fi
 
 
